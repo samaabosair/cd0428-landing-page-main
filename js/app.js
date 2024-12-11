@@ -15,7 +15,7 @@ function creatNav() {
     // Create a list item for each section
     const listItem = document.createElement('li');
     const sectionTitleName = section.getAttribute('data-nav');
-    
+
     // Create an anchor element for the list item
     const anchor = document.createElement('a');
     anchor.textContent = sectionTitleName;
@@ -23,7 +23,7 @@ function creatNav() {
     anchor.classList.add('menu__link'); // add the class for styling
 
     // add click event 
-    anchor.addEventListener('click', function(event) {
+    anchor.addEventListener('click', function (event) {
       event.preventDefault();
       section.scrollIntoView({ behavior: 'smooth' });
     });
@@ -32,13 +32,17 @@ function creatNav() {
     listOfNave.appendChild(listItem);
   });
 }
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 200) {
-      backToTopButton.classList.add('show');
-    } else {
-      backToTopButton.classList.remove('show');
-    }
-  });
+
+/**
+ * Show or hide the back-to-top button
+ */
+window.addEventListener('scroll', function () {
+  if (window.scrollY > 200) {
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
 
 /**
  * Highlight active section in viewport
@@ -48,8 +52,9 @@ function highlightActiveSection() {
     const bounding = section.getBoundingClientRect();
     const navItems = listOfNave.querySelectorAll('li');
 
+    // Check if section is in the viewport
     if (bounding.top >= 0 && bounding.top <= window.innerHeight) {
-      section.classList.add('active');
+      section.classList.add('your-active-class'); // Add active class to section
 
       // Highlight the corresponding navigation link
       navItems.forEach(item => {
@@ -60,21 +65,26 @@ function highlightActiveSection() {
         }
       });
     } else {
-      section.classList.remove('active');
+      section.classList.remove('your-active-class'); // Remove active class from section
     }
   });
 }
-backToTopButton.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' //for button to go up 
-    });
+
+/**
+ * Scroll to top when back-to-top button is clicked
+ */
+backToTopButton.addEventListener('click', function () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' //for button to go up 
   });
+});
+
 /**
  * Initialize the page
  */
 function init() {
- creatNav();
+  creatNav();
   window.addEventListener('scroll', highlightActiveSection);
 }
 

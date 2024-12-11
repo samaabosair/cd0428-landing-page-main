@@ -1,12 +1,10 @@
 /*
- *
  * CSS written based on SMACSS architecture.
  * To learn more, visit: http://smacss.com/
  * 
  * For simplicity, no reset or normalize is added. 
  * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
+ */
 
 /* ---- Base Rules ---- */
 
@@ -25,7 +23,6 @@ h1 {
     font-size: 3em;
     margin: 2em 1rem;
 }
-
 
 /* ---- Layout Rules ---- */
 
@@ -65,17 +62,17 @@ section {
     display: block;
     padding: 2vh 2vw;
     font-size: 1.2rem;
-    font-weight: normal; 
+    font-weight: normal;
     text-decoration: none; /* remove underline */
     color: #fff;
     text-transform: uppercase;
-    font-family: 'Fira Sans', sans-serif; 
+    font-family: 'Fira Sans', sans-serif;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .navbar__menu .menu__link:hover {
-    background: #2538a3; /*background on hover */
+    background: #2538a3; /* background on hover */
     color: #fff;
     transform: translateY(-5px); /* Hover effect with a slight lift */
 }
@@ -99,8 +96,6 @@ section {
     background: rgba(0, 0, 0, 0.9); /* Darker background on hover */
 }
 
-
-
 /* Footer Styles */
 .page__footer {
     background: #000;
@@ -120,8 +115,6 @@ section {
     text-align: left;
     color: #eee; /* Default text color */
 }
-
-
 
 /* Section Active Styles */
 section.your-active-class {
@@ -200,7 +193,6 @@ section:nth-of-type(3n + 1) .landing__container::after {
 
 /* ---- Theme State Rules ---- */
 
-
 /* Section transition when active, background gradient change */
 section.your-active-class {
     background: rgb(0, 0, 0);
@@ -237,7 +229,7 @@ section.your-active-class .landing__container::after {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color:  rgb(136,203,171);;
+    background-color: rgb(136,203,171);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -249,20 +241,22 @@ section.your-active-class .landing__container::after {
 }
 
 #backToTop:hover {
-    background-color:  #2538a3;;
+    background-color: #2538a3;
 }
 
-/* show  button when scrolled down */
+/* show button when scrolled down */
 #backToTop.show {
     display: block;
 }
 
-/*@media for all screen */
+/* Media Queries */
 
+/* For medium screen */
 @media only screen and (min-width: 35em) {
     .navbar__menu li {
         margin: 0 2rem; /* increase space between links */
     }
+
     .landing__container {
         max-width: 50em;
         padding: 4em;
@@ -272,22 +266,21 @@ section.your-active-class .landing__container::after {
         font-size: 7em;
         margin: 2em 4rem 1em;
     }
+
     h2 {
         border-bottom: 1px solid #cc1;
         font-family: 'Oxygen', Sans-Serif;
         font-size: 3em;
         color: #fff;
     }
-    
+
     p {
         line-height: 1.6em;
         color: #eee;
     }
 }
 
-
-
-/* foe small screen*/
+/* For small screen */
 @media only screen and (max-width: 768px) {
     .navbar__menu .menu__link {
         font-size: 0.8rem; 
